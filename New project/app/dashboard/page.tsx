@@ -54,12 +54,12 @@ export default async function DashboardPage() {
               key={booking.id}
               title={title}
               subtitle={booking.type.replace("_", " ")}
-              price={booking.totalPrice}
+              price={Number(booking.totalPrice)}
               details={[
                 `Status: ${booking.status}`,
                 `Date: ${new Date(booking.startAt).toLocaleString()}`,
                 `Timezone: ${booking.timezone}`,
-                `Deposit: ${formatCurrency(booking.depositAmount)}`,
+                `Deposit: ${formatCurrency(Number(booking.depositAmount))}`,
                 booking.eventAddress ? `Address: ${booking.eventAddress}` : "Address not required",
                 booking.specialRequests ? `Notes: ${booking.specialRequests}` : "No special notes provided"
               ]}
